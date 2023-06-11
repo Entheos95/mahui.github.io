@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>从0到1搭建专属博客：Hexo + Fluid + Github Pages + Chatgpt + Midjoruney</title>
+    <link href="/2023/06/11/%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%E4%B8%93%E5%B1%9E%E5%8D%9A%E5%AE%A2%EF%BC%9AHexo-Fluid-Github-Pages-Chatgpt-Midjoruney/"/>
+    <url>/2023/06/11/%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%E4%B8%93%E5%B1%9E%E5%8D%9A%E5%AE%A2%EF%BC%9AHexo-Fluid-Github-Pages-Chatgpt-Midjoruney/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-背景-🚀"><a href="#1-背景-🚀" class="headerlink" title="1. 背景 🚀"></a>1. 背景 🚀</h1><p>​不知不觉就工作两年左右，在这期间也经历了部门动荡（差点被裁员😱）、部门合并、更换经理，感觉自己总是忙于业务（边缘又不受重视），并没有获得什么成长。最近部门内走了很多人，来了也很多人，希望自己居安思危，不断成长。建立这个Blog的目的也是为了记录和督促自己不断学习进步💪。</p><p>​最初选博客的时候，也考虑过是不是用现有线上博客会好一点，考虑到线上博客的美观性和灵活性比较差，最后放弃了（其实就是单纯的感觉不够Geek👎，为了装逼😎）。另外的话，也可以看看建站的流程，学习一下，打算自己做做SEO、搞个微信公众号，挣点小外快（想Peach🍑）。</p><p>​博客的话肯定是越快建起来越好，毕竟我是一个三分钟热度的人。所以我想的是用<strong>Github Pages</strong>部署，Blog就选择了<strong>Hexo</strong>（相较于jekyll更简单好看～ 颜狗是我😍），Hexo的主题选择<strong>Fluid</strong>。网站内容描述都是<strong>Chatgpt</strong>生成的（语言匮乏星人的救星🤩），然后网站的icon和banner都是<strong>Midjoruney</strong>生成的，看起还不错。</p><p><img src="/2023/06/11/%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%E4%B8%93%E5%B1%9E%E5%8D%9A%E5%AE%A2%EF%BC%9AHexo-Fluid-Github-Pages-Chatgpt-Midjoruney/knelson_Design_an_icon_for_a_blog_owned_by_Ma_Hui._The_content__31540f83-16d0-4042-aa0f-6e40ee958504.png" alt="Midjoruney生成的图标" title="Midjoruney生成的图标，看起来还不错"></p><h1 id="2-博客搭建"><a href="#2-博客搭建" class="headerlink" title="2. 博客搭建"></a>2. 博客搭建</h1><h2 id="2-1-Github-Pages"><a href="#2-1-Github-Pages" class="headerlink" title="2.1 Github Pages"></a>2.1 Github Pages</h2><p><a href="https://pages.github.com/">Github Page 官网</a> （我就简单搬运下Chatgpt的翻译～ 👌）</p><h3 id="（1）创建一个代码仓库"><a href="#（1）创建一个代码仓库" class="headerlink" title="（1）创建一个代码仓库"></a>（1）创建一个代码仓库</h3><blockquote><p>请前往 GitHub，并创建一个名为 “username.github.io” 的新公共代码仓库，<strong>其中 “username” 是您在 GitHub 上的用户名（或组织名）</strong>（这句话特别重要，一定要和自己的github名字一模一样‼️）。<br>如果代码仓库的第一部分与您的用户名不完全匹配，它将无法正常工作，因此请确保正确填写。</p></blockquote><p><img src="https://pages.github.com/images/user-repo@2x.png" alt="Github Pages 官方图片" title="Github Pages 官网图片"></p><h3 id="（2）克隆代码仓库"><a href="#（2）克隆代码仓库" class="headerlink" title="（2）克隆代码仓库"></a>（2）克隆代码仓库</h3><blockquote><p>前往您想要存储项目的文件夹，并克隆新的代码仓库：</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git clone https://github.com/username/username.github.io<br></code></pre></td></tr></table></figure><h3 id="（3）你好，世界！"><a href="#（3）你好，世界！" class="headerlink" title="（3）你好，世界！"></a>（3）你好，世界！</h3><blockquote><p>进入项目文件夹并添加一个 index.html 文件：</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd username.github.io<br>echo &quot;Hello World&quot; &gt; index.html<br></code></pre></td></tr></table></figure><h3 id="（4）提交更改"><a href="#（4）提交更改" class="headerlink" title="（4）提交更改"></a>（4）提交更改</h3><p>执行以下操作：添加更改、提交更改并推送到远程仓库：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">git add --all<br>git commit -m &quot;Initial commit&quot;<br>git push -u origin main<br></code></pre></td></tr></table></figure><h3 id="（5）你完成了！"><a href="#（5）你完成了！" class="headerlink" title="（5）你完成了！"></a>（5）你完成了！</h3><p>打开浏览器，访问 <a href="https://username.github.io/">https://username.github.io</a></p><h2 id="2-2-Hexo"><a href="#2-2-Hexo" class="headerlink" title="2.2 Hexo"></a>2.2 Hexo</h2><p><a href="https://hexo.io/zh-cn/">Hexo官网</a></p><h3 id="（1）安装Hexo第一步是先安装nodejs"><a href="#（1）安装Hexo第一步是先安装nodejs" class="headerlink" title="（1）安装Hexo第一步是先安装nodejs"></a>（1）安装Hexo第一步是先安装nodejs</h3><p><a href="https://nodejs.org/zh-cn/download">NodeJs下载链接</a> 下载完毕安装就完事了</p><h3 id="（2）安装和启动Hexo"><a href="#（2）安装和启动Hexo" class="headerlink" title="（2）安装和启动Hexo"></a>（2）安装和启动Hexo</h3><p>Hexo的命令比较简单，就是进入上面克隆的仓库，依次执行下面的命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install hexo-cli -g # 安装Hexo<br>hexo init blog # 初始化博客<br>cd blog # 进入文件夹<br>npm install # 安装依赖<br>hexo server # 启动博客<br></code></pre></td></tr></table></figure><p>核心命令的话就有4个：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">hexo new [layout] &lt;title&gt; # 创建一个页面<br>hexo clean # 清理编译生成的网页<br>hexo g # 生成网页<br>hexo s # 部署到本地<br>hexo d # 同步到仓库，需配置_config.yml文件<br></code></pre></td></tr></table></figure><p><img src="/image-20230612005112441" alt="image-20230612005112441" title="_config.yml文件的部署配置"></p><h2 id="2-3-Hexo-Fluid主题"><a href="#2-3-Hexo-Fluid主题" class="headerlink" title="2.3 Hexo-Fluid主题"></a>2.3 Hexo-Fluid主题</h2><p><a href="https://github.com/fluid-dev/hexo-theme-fluid">Github地址</a></p><p><a href="https://hexo.fluid-dev.com/docs/start/">官方手册</a></p><p>这个我就不详细讲了，根据他的文档手册来没有问题。🫡　</p><p>但是按照他的流程有的很问题的点在于有个包没安装，导致创建页面的时候会报错 ‼️</p><p>我看有人在issue里面反馈了，估计后后面会修复。</p><p><img src="https://user-images.githubusercontent.com/135296923/244594427-ff3274eb-244a-4e0b-b6f4-7755c696402a.png" alt="https://github.com/fluid-dev/hexo-theme-fluid/issues/961" title="原图在这里 https://github.com/fluid-dev/hexo-theme-fluid/issues/961"></p><p>解决方案：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install css --save<br></code></pre></td></tr></table></figure><h2 id="2-4-Chatgpt"><a href="#2-4-Chatgpt" class="headerlink" title="2.4 Chatgpt"></a>2.4 Chatgpt</h2><p>神器！！！！！！感觉是每个人都需要的神器！！！😍😍😍</p><p>科学🔬上网 + Google📮邮箱 + 短信服务 就可以注册！网上有很多教程，比如下面这个（不保证可用性、安全性等）：</p><p><a href="https://www.leavescn.com/Articles/Content/1213">https://www.leavescn.com/Articles/Content/1213</a></p><p><img src="/2023/06/11/%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%E4%B8%93%E5%B1%9E%E5%8D%9A%E5%AE%A2%EF%BC%9AHexo-Fluid-Github-Pages-Chatgpt-Midjoruney/image-20230612010754841.png" alt="image-20230612010754841" title="生成网站的描述，感觉还可以"></p><h2 id="2-5-Midjoruney"><a href="#2-5-Midjoruney" class="headerlink" title="2.5 Midjoruney"></a>2.5 Midjoruney</h2><p>Midjoruney已经开始收费了，某宝的话可以10块钱就能买一个月的共享账号。Midjoruney的话主要是用来生成一些和网站有关的图片，比如网站的icon，首页的banner等等，避免一些版权纠纷（杞人忧天🤓），也是尝试一下新鲜事物。</p><p>用chatgpt生成详细的描述句，然后用Midjoruney生成图片，感觉还不错。</p><p><img src="/2023/06/11/%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%E4%B8%93%E5%B1%9E%E5%8D%9A%E5%AE%A2%EF%BC%9AHexo-Fluid-Github-Pages-Chatgpt-Midjoruney/knelson_An_18-year-old_Chinese_male_model_is_seated_in_a_car_su_8ba5ee2b-e4d7-43d8-9843-9f0b4bc003eb.png" title="感觉还不错！汽车 蓝天 鲜花 少年"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Blog</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hexo</tag>
+      
+      <tag>Fluid</tag>
+      
+      <tag>Github Pages</tag>
+      
+      <tag>Chatgpt</tag>
+      
+      <tag>Midjoruney</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2023/06/10/hello-world/"/>
+    <url>/2023/06/10/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="code-wrapper"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span></code></pre></div><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="code-wrapper"><pre><code class="hljs bash">$ hexo server</code></pre></div><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="code-wrapper"><pre><code class="hljs bash">$ hexo generate</code></pre></div><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="code-wrapper"><pre><code class="hljs bash">$ hexo deploy</code></pre></div><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
