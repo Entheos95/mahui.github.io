@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>【Nginx入门】1.基本介绍和原理解析</title>
+    <link href="/2023/06/15/%E3%80%90Nginx%E5%85%A5%E9%97%A8%E3%80%911-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%E5%92%8C%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90/"/>
+    <url>/2023/06/15/%E3%80%90Nginx%E5%85%A5%E9%97%A8%E3%80%911-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%E5%92%8C%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90/</url>
+    
+    <content type="html"><![CDATA[<h1 id="第一章：Nginx概述"><a href="#第一章：Nginx概述" class="headerlink" title="第一章：Nginx概述"></a>第一章：Nginx概述</h1><h2 id="1-1、Nginx概述"><a href="#1-1、Nginx概述" class="headerlink" title="1.1、Nginx概述"></a>1.1、Nginx概述</h2><blockquote><p>Nginx（“engine x”）是一个高性能的<span class="label label-danger">HTTP</span>和<span class="label label-danger">反向代理服务器</span>，特点是占有内存少，并发能力强，事实上Nginx的并发能力确实在同类型的网页服务器中表现较好，中国大陆使用Nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。</p><footer><strong>架构师社区</strong><cite><a href="https://mp.weixin.qq.com/s?__biz=MzU0OTE4MzYzMw==&mid=2247516769&idx=3&sn=2c9b6a79c8bd1476d99057caedb1875d&chksm=fbb10b9fccc682899bc443838d327796d909e217a21ba36d5853a31078e6bf81ccc47fc9bf89&scene=27">学习Nginx这一篇就够了</a></cite></footer></blockquote><ol><li><strong>反向代理（Reverse Proxy）</strong><span class="label label-success">是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个服务器。</span></li><li><strong>Nginx之所以被称为反向代理</strong>，<span class="label label-default">是因为它在客户端和服务器之间起到了代理的作用，将客户端的请求转发给后端服务器。与传统的正向代理不同，正向代理是为了代表客户端发送请求，隐藏客户端身份，访问互联网上的资源。</span></li><li><strong>Nginx不仅仅支持HTTP协议</strong>，<span class="label label-info">还支持其他协议，如HTTPS、SMTP、POP3、IMAP 等。它具有高性能、高并发处理能力以及灵活的配置选项，使其成为一个流行的反向代理服务器和负载均衡器。（也支持TCP和UDP）</span></li></ol><h2 id="1-2、Nginx官网"><a href="#1-2、Nginx官网" class="headerlink" title="1.2、Nginx官网"></a>1.2、Nginx官网</h2><p>官网地址：<a href="http://nginx.org/">http://nginx.org/</a></p><h2 id="1-3、Nginx用处"><a href="#1-3、Nginx用处" class="headerlink" title="1.3、Nginx用处"></a>1.3、Nginx用处</h2><blockquote><p>Nginx可以作为静态页面的Web服务器，同时还支持CGI协议的动态语言，比如Perl、PHP等。但是不支持Java。Java程序只能通过与Tomcat配合完成。Nginx专为性能优化而开发，性能是其最重要的考量，实现上非常注重效率，能经受高负载的考验，有报告表明能支持高达50000个并发连接数。</p><footer><strong>架构师社区</strong><cite><a href="https://mp.weixin.qq.com/s?__biz=MzU0OTE4MzYzMw==&mid=2247516769&idx=3&sn=2c9b6a79c8bd1476d99057caedb1875d&chksm=fbb10b9fccc682899bc443838d327796d909e217a21ba36d5853a31078e6bf81ccc47fc9bf89&scene=27">学习Nginx这一篇就够了</a></cite></footer></blockquote><div class="note note-success">            <p>CGI协议：CGI（通用网关接口，Common Gateway Interface）是一种用于在Web服务器和应用程序之间进行通信的协议。它定义了Web服务器如何与外部程序（通常是脚本或可执行文件）进行交互，以生成动态的Web内容。</p>          </div><pre><code class=" mermaid">flowchart LR  a[Nginx]  b[CGI协议]  c[脚本]  d[可执行文件]  a--&gt;|请求的参数和其他环境变量|b--&gt;|调用|c &amp; d-.-&gt;|CGI协议标准输出|b-.-&gt;|返回结果|a</code></pre><p>事实上，Nginx 是一款不支持直接运行 Java 代码的 Web 服务器和反向代理服务器。Nginx 是用 C 语言开发的，其核心功能主要集中在处理 HTTP 和其他网络协议上。</p><p>然而，您可以结合使用 Nginx 和其他工具或技术来支持 Java 应用程序的部署和运行。这通常通过以下两种方式实现：</p><ol><li>反向代理到 Java 应用服务器：您可以将 Nginx 配置为反向代理，将传入的 HTTP 请求转发到运行 Java 应用程序的后端服务器，如 Apache Tomcat、Jetty 或 WildFly 等。Nginx 可以处理静态文件和负载均衡，并将动态请求转发给 Java 应用服务器进行处理。</li><li>使用 Nginx 作为静态文件服务器：您可以使用 Nginx 来提供静态文件，如 HTML、CSS、JavaScript 和图像等。对于动态内容，您可以将请求转发给 Java 应用服务器进行处理，然后将响应返回给客户端。</li></ol><p>这种组合使用 Nginx 和 Java 应用服务器的方式可以发挥各自的优势，例如 Nginx 的高性能、负载均衡和缓存能力以及 Java 应用服务器的 Java 编程能力和企业级功能。</p><p>需要注意的是，有一些其他工具，如 Apache HTTP Server、Apache Traffic Server 或专门用于 Java 应用程序的服务器，如 Apache Tomcat、Jetty 和 WildFly，它们更直接地支持 Java 应用程序的运行。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>服务器</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>服务器</tag>
+      
+      <tag>反向代理</tag>
+      
+      <tag>Nginx</tag>
+      
+      <tag>Tomcat</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>从0到1搭建专属博客：Hexo + Fluid + Github Pages + Chatgpt + Midjoruney</title>
     <link href="/2023/06/11/%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%E4%B8%93%E5%B1%9E%E5%8D%9A%E5%AE%A2%EF%BC%9AHexo-Fluid-Github-Pages-Chatgpt-Midjoruney/"/>
     <url>/2023/06/11/%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%E4%B8%93%E5%B1%9E%E5%8D%9A%E5%AE%A2%EF%BC%9AHexo-Fluid-Github-Pages-Chatgpt-Midjoruney/</url>
